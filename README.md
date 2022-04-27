@@ -29,7 +29,7 @@ Bu proje basit bir akıllı ev sisteminin uygulanmasıdır. Projede evde bulunan
 Gömülü ve IOT sistemler üzerine çalışmaktadır. Projede akıllı cihazın firmware'ini yazmaktan ve dokümante etmekten sorumludur.
 
 * [Enes Şahin](https://github.com/enessahin450)
-
+Hikaye kartı ve kullanım kılavuzu yazımı. Mobil uygulama destek sağlanacak.
 
 
 * [İbrahim Yahya Aydınlı](https://github.com/ibrahimyahyaaydinli) (iletişim sorumlusu)
