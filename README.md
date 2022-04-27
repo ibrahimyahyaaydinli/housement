@@ -12,7 +12,7 @@ Bu proje basit bir akıllı ev sisteminin uygulanmasıdır. Projede evde bulunan
 
 
 
-* [Ali Furkan Demir](https://github.com/AliFurkanDemir)
+* [Ali Furkan Demir](https://github.com/AliFurkanDemir) Frontend tarafında React Native, Backend tarafında Node.js kullanılarak app geliştirme ve uygulama yapımından sorumludur.
 
 
 
