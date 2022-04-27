@@ -18,6 +18,8 @@ Frontend tarafında React Native, Backend tarafında Node.js kullanılarak app g
 
 * [Ayşenur Erkin](https://github.com/Aysenur-Erkin)
 
+Mobil uygulama tasarımı. Devre kurulumu ve arduino yazılımı.
+
 * [Bilal Çalık](https://github.com/Bilalcalik)
 
 * [Ceyhun Şen](https://github.com/ceyhunsen)
