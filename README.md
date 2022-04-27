@@ -8,7 +8,7 @@ Bu proje basit bir akıllı ev sisteminin uygulanmasıdır. Projede evde bulunan
 
 ## Takım Üyelerinin Yetkinlikleri ve Görevleri
 
-* [Ali Cüneyt Çağlar](https://github.com/CuneytCaglar) React Native ile App geliştirme , frontend ve backend de yardımcı olma.
+* [Ali Cüneyt Çağlar](https://github.com/CuneytCaglar) Frontend tarafında React Native kullanılarak app geliştirme ve uygulama
 
 
 
