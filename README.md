@@ -18,7 +18,7 @@ Frontend tarafında React Native, Backend tarafında Node.js kullanılarak app g
 
 * [Ayşenur Erkin](https://github.com/Aysenur-Erkin)
 
-Mobil uygulama tasarımı. Devre kurulumu ve arduino yazılımı.
+Mobil uygulama tasarımı. Devre kurulumu ve ESP32 yazılımı.
 
 * [Bilal Çalık](https://github.com/Bilalcalik)
 
@@ -36,7 +36,9 @@ Hikaye kartı ve kullanım kılavuzu yazımı. Mobil uygulama destek sağlanacak
 
 ### Yazılım
 
+Mobil uygulama için...
 
+ESP32, Arduino Core for ESP32 ile kodlanacaktır.
 
 ### Donanım
 
