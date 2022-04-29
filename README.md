@@ -49,3 +49,7 @@ Akıllı cihazdan gelen verilerin görüntülenebilmesi için mobil telefon gere
 ## Yazılım Geliştirme Süreci
 
 Yazılım geliştirme süreci olarak artırımlı (incremental) ekstrem programlama (XP) belirlenmiştir.
+
+## Broşür ve Kullanım Kılavuzu
+
+Broşür ve kullanım kılavuzuna [buradan](documents/) ulaşabilirsiniz.
