@@ -44,4 +44,8 @@ ESP32, Arduino Core for ESP32 ile kodlanacaktır.
 
 Akıllı cihaz için ESP32 WROOM-32U mikrodenetleyicisi kullanılacaktır. Ayrıca verilerin ölçülebilmesi için ise BMP180, BME680 ve ışık sensörü kullanılacaktır.
 
+Akıllı cihazdan gelen verilerin görüntülenebilmesi için mobil telefon gereklidir.
+
 ## Yazılım Geliştirme Süreci
+
+Yazılım geliştirme süreci olarak artırımlı (incremental) ekstrem programlama (XP) belirlenmiştir.
