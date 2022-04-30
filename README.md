@@ -32,6 +32,8 @@ Hikaye kartı ve kullanım kılavuzu yazımı. Mobil uygulama destek sağlanacak
 
 * [İbrahim Yahya Aydınlı](https://github.com/ibrahimyahyaaydinli) (iletişim sorumlusu)
 
+Frontend ve backend developerdur.React native ile frontend tarafı geliştirilecek olan projenin backend tarafı da node.js ile geliştirildikten sonra firebase ile uygulamanın arasında veri alışverişinin sağlanmasını gerçekleştirecektir.
+
 ## Kullanılacak Yazılımlar/Donanımlar
 
 ### Yazılım
