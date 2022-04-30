@@ -38,7 +38,7 @@ Frontend ve backend developerdur.React native ile frontend tarafı geliştirilec
 
 ### Yazılım
 
-Mobil uygulama için...
+Mobil uygulama için React Native UI framwork kullanılacaktır.Sunucu tarafı Node.js ile yazılacak olup,veritabanı olarak Google'ın geliştirmiş olduğu ve  real-time veri alışverişi gerçekleştirebileceğimiz Firebase kullanılacaktır.
 
 ESP32, Arduino Core for ESP32 ile kodlanacaktır.
 
