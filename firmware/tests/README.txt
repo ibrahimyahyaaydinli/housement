@@ -1,0 +1,1 @@
+Run make command to compile and test program. Alternatively, one can compile every .cpp files in previous directory and Unity/src/unity.c file together and add previous directory and Unity/src/ directories to include path for the compiler. Then run the executable natively.

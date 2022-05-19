@@ -5,6 +5,7 @@
  * */
 
 #include "state_machine.h"
+#include "events.h"
 #include "unity.h"
 #include <iostream>
 #include <assert.h>
@@ -27,6 +28,7 @@ void tearDown()
 void test_construction()
 {
 	TEST_ASSERT_EQUAL(sm.get_state(), idle);
+	TEST_ASSERT_EQUAL(sm.get_clock(), 0);
 }
 
 void test_event_seg_fault()
@@ -36,9 +38,22 @@ void test_event_seg_fault()
 	sm.run();
 }
 
+void test_temperature_read()
+{
+	sm.run();
+}
+
+void test_clock()
+{
+	sm.update_clock();
+	TEST_ASSERT_EQUAL(sm.get_clock(), 10);
+}
+
 int main()
 {
 	RUN_TEST(test_construction);
 	RUN_TEST(test_event_seg_fault);
+	RUN_TEST(test_temperature_read);
+	RUN_TEST(test_clock);
 	return (UnityEnd());
 }
