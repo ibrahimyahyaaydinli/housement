@@ -1,0 +1,8 @@
+# Editor thigies
+*.geany
+
+# C objects and executables
+*.o
+*.exe
+*.out
+firmware/build
