@@ -11,6 +11,8 @@
 #include <queue>
 #include <cstdint>
 
+#define MAX_QUEUE_SIZE 256
+
 /**
  * @brief State machine class.
  * */
@@ -22,9 +24,9 @@ class housement_state_machine {
 		void update_clock();
 		states get_state();
 		uint16_t get_clock();
+		states state;
 
 	private:
-		states state;
 		std::queue<events> event_queue;
 		volatile uint16_t clock;
 		void add_timer_events();

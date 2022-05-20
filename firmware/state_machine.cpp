@@ -15,7 +15,7 @@ std::mutex mtx;
  * */
 housement_state_machine::housement_state_machine()
 {
-	this->state = idle;
+	this->state = reading;
 	this->clock = 0;
 }
 
@@ -45,7 +45,8 @@ void housement_state_machine::run()
 void housement_state_machine::add_event(events event)
 {
 	mtx.lock();
-	event_queue.push(event);
+	if (event_queue.size() <= MAX_QUEUE_SIZE)
+		event_queue.push(event);
 	mtx.unlock();
 }
 
@@ -57,8 +58,8 @@ void housement_state_machine::update_clock()
 	// Add 10 millisecond.
 	this->clock += 10;
 
-	// Reset every 1 second.
-	this->clock %= 1000;
+	// Reset every 10 seconds.
+	this->clock %= 10000;
 }
 
 /**
@@ -89,5 +90,19 @@ void housement_state_machine::add_timer_events()
 	if (this->clock % 100 == 0 && last_temperature_read != this->clock) {
 		last_temperature_read = this->clock;
 		this->add_event(ev_read_temperature);
+	}
+
+	// Read gas every 500 ms.
+	static uint16_t last_gas_read = 0;
+	if (this->clock % 500 == 0 && last_gas_read != this->clock) {
+		last_gas_read = this->clock;
+		this->add_event(ev_read_gas);
+	}
+
+	// Update database every 1000 ms.
+	static uint16_t last_database_update = 0;
+	if (this->clock % 1000 == 0 && last_database_update != this->clock) {
+		last_database_update = this->clock;
+		this->add_event(ev_update_database);
 	}
 }

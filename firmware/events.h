@@ -11,17 +11,19 @@
  * @brief Events for the state machine.
  * */
 typedef enum events {
-	ev_burglar_alarm = 0,
+	ev_read_temperature = 0,
+	ev_read_gas,
+	ev_read_movement,
+	ev_update_database,
+	ev_burglar_alarm,
 	ev_extreme_temperature,
-	ev_read_temperature,
 } events;
 
 /**
  * @brief State machine states.
  * */
 typedef enum states {
-	idle = 0,
-	reading,
+	reading = 0,
 	alarm_active
 } states;
 
