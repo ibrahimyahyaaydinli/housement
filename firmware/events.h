@@ -11,8 +11,7 @@
  * @brief Events for the state machine.
  * */
 typedef enum events {
-	ev_read_temperature = 0,
-	ev_read_gas,
+	ev_read_sensor = 0,
 	ev_read_movement,
 	ev_update_database,
 	ev_burglar_alarm,

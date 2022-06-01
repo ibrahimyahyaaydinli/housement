@@ -85,18 +85,11 @@ uint16_t housement_state_machine::get_clock()
  * */
 void housement_state_machine::add_timer_events()
 {
-	// Read temperature every 100 ms.
-	static uint16_t last_temperature_read = 0;
-	if (this->clock % 100 == 0 && last_temperature_read != this->clock) {
-		last_temperature_read = this->clock;
-		this->add_event(ev_read_temperature);
-	}
-
-	// Read gas every 500 ms.
-	static uint16_t last_gas_read = 0;
-	if (this->clock % 500 == 0 && last_gas_read != this->clock) {
-		last_gas_read = this->clock;
-		this->add_event(ev_read_gas);
+	// Read sensor every 500 ms.
+	static uint16_t last_sensor_read = 0;
+	if (this->clock % 500 == 0 && last_sensor_read != this->clock) {
+		last_sensor_read = this->clock;
+		this->add_event(ev_read_sensor);
 	}
 
 	// Update database every 1000 ms.

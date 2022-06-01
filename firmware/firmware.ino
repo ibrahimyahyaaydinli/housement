@@ -8,7 +8,7 @@
 #include "state_machine.h"
 #include "housement_server.h"
 #include <WiFi.h>
-#include <Adafruit_BMP280.h>
+#include <Adafruit_BME680.h>
 #include <Firebase_ESP_Client.h>
 
 /*******************************************************************************
@@ -22,8 +22,8 @@ housement_state_machine state_machine;
 const char *ssid     = "";
 const char *password = "";
 
-// BMP280 object.
-Adafruit_BMP280 bmp280;
+// BME680 object.
+Adafruit_BME680 bme680;
 
 /*******************************************************************************
  * 10 ms timer.
@@ -69,18 +69,18 @@ void setup()
 	debug_print("Local IP address is: ");
 	debug_println(WiFi.localIP());
 
-	// Initialize BMP280.
-	if (!bmp280.begin()) {
-		debug_println("BMP280 not found! Check wiring!");
+	// Initialize BMP680.
+	if (!bme680.begin()) {
+		debug_println("BME680 not found! Check wiring!");
 		while (1);
 	}
 
-	// Configure BMP280.
-	bmp280.setSampling(Adafruit_BMP280::MODE_NORMAL,
-	                   Adafruit_BMP280::SAMPLING_X2,
-	                   Adafruit_BMP280::SAMPLING_X16,
-	                   Adafruit_BMP280::FILTER_X16,
-	                   Adafruit_BMP280::STANDBY_MS_500);
+	// Set up oversampling and filter initialization
+	bme680.setTemperatureOversampling(BME680_OS_1X);
+	bme680.setHumidityOversampling(BME680_OS_1X);
+	bme680.setPressureOversampling(BME680_OS_1X);
+	bme680.setIIRFilterSize(BME680_FILTER_SIZE_1);
+	bme680.setGasHeater(100, 10); // 100*C for 10 ms
 
 	// Start Firebase.
 	housement_server_init();
