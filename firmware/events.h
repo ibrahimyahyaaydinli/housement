@@ -16,6 +16,8 @@ typedef enum events {
 	ev_update_database,
 	ev_burglar_alarm,
 	ev_extreme_temperature,
+	ev_open_led,
+	ev_close_led
 } events;
 
 /**

@@ -92,6 +92,13 @@ void housement_state_machine::add_timer_events()
 		this->add_event(ev_read_sensor);
 	}
 
+	// Get movement every 500 ms.
+	static uint16_t last_movement_read = 0;
+	if (this->clock % 500 == 0 && last_movement_read != this->clock) {
+		last_movement_read = this->clock;
+		this->add_event(ev_read_movement);
+	}
+
 	// Update database every 1000 ms.
 	static uint16_t last_database_update = 0;
 	if (this->clock % 1000 == 0 && last_database_update != this->clock) {

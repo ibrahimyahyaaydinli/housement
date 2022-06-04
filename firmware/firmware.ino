@@ -86,7 +86,10 @@ void setup()
 	housement_server_init();
 
 	// Set buzzer as output.
-	pinMode(buzzer, HIGH);
+	pinMode(buzzer, OUTPUT);
+
+	// Set pir as input.
+	pinMode(pir_sensor, INPUT);
 
     // Configure timer in 10 ms.
     timer = timerBegin(0, 80, true);

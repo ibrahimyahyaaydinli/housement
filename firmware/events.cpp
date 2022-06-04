@@ -24,7 +24,9 @@ static void read_movement();
 static void update_database();
 static void burglar_alarm();
 static void extreme_temperature();
-static void (*state_functions[])() = {read_sensor, read_movement, update_database, burglar_alarm, extreme_temperature};
+static void open_led();
+static void close_led();
+static void (*state_functions[])() = {read_sensor, read_movement, update_database, burglar_alarm, extreme_temperature, open_led, close_led};
 
 void run_event(events event)
 {
@@ -56,7 +58,9 @@ void read_sensor()
 
 static void read_movement()
 {
-	
+	if (digitalRead(pir_sensor) == HIGH) {
+		state_machine.add_event(ev_burglar_alarm);
+	}
 }
 
 static void update_database()
@@ -83,4 +87,16 @@ static void extreme_temperature()
 {
 	digitalWrite(buzzer, HIGH);
 	debug_println("Extreme temperature!");
+}
+
+static void open_led()
+{
+	digitalWrite(led, HIGH);
+	debug_println("Led opened.");
+}
+
+static void close_led()
+{
+	digitalWrite(led, LOW);
+	debug_println("Led closed.");
 }

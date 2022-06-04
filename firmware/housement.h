@@ -6,11 +6,13 @@
 #ifdef H_DEBUG
 # define debug_print(s) (Serial.print(s))
 # define debug_println(s) (Serial.println(s))
-//~ #else
-//~ # define debug_print(s) ;
-//~ # define debug_println(s) ;
+#else
+# define debug_print(s) ;
+# define debug_println(s) ;
 #endif
 
 #define buzzer 5
+#define pir_sensor 4
+#define led 2
 
 #endif // __HOUSEMENT_H
