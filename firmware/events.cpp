@@ -19,6 +19,9 @@ extern housement_state_machine state_machine;
 // Extern BMP280 object.
 extern Adafruit_BME680 bme680;
 
+// Extern burglar alarm irq bool.
+extern bool is_movement;
+
 static void read_sensor();
 static void read_movement();
 static void update_database();
@@ -58,9 +61,10 @@ void read_sensor()
 
 static void read_movement()
 {
-	if (digitalRead(pir_sensor) == HIGH) {
+	if (is_movement) {
 		state_machine.add_event(ev_burglar_alarm);
 	}
+	is_movement = false;
 }
 
 static void update_database()
@@ -72,15 +76,16 @@ static void update_database()
 static void burglar_alarm()
 {
 	if (state_machine.get_state() == alarm_active) {
+		debug_println("Burglar alarm!");
 		digitalWrite(buzzer, HIGH);
 		h_server.movement_detected = true;
 	}
 	else {
+		debug_println("Movement.");
 		digitalWrite(buzzer, LOW);
 		h_server.movement_detected = false;
 		state_machine.state = reading;
 	}
-	debug_println("Burglar alarm!");
 }
 
 static void extreme_temperature()

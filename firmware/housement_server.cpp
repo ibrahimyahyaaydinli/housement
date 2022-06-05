@@ -74,6 +74,7 @@ void housement_server::get_database()
 				else {
 					state_machine.state = reading;
 					h_server.movement_detected = false;
+					digitalWrite(buzzer, LOW);
 				}
 			}
 		}

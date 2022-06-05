@@ -11,8 +11,8 @@
 # define debug_println(s) ;
 #endif
 
-#define buzzer 5
+#define buzzer 2
 #define pir_sensor 4
-#define led 2
+#define led 16
 
 #endif // __HOUSEMENT_H

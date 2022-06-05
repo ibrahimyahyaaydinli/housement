@@ -38,13 +38,13 @@ Frontend ve backend geliştiricisidir.React native ile frontend tarafı gelişti
 
 ### Yazılım
 
-Mobil uygulama için React Native UI framwork kullanılacaktır.Sunucu tarafı Node.js ile yazılacak olup,veritabanı olarak Google'ın geliştirmiş olduğu ve  real-time veri alışverişi gerçekleştirebileceğimiz Firebase kullanılacaktır.
+Mobil uygulama için React Native UI framework kullanılacaktır. Sunucu tarafı Node.js ile yazılacak olup, veritabanı olarak Google'ın geliştirmiş olduğu ve  real-time veri alışverişi gerçekleştirebileceğimiz Firebase kullanılacaktır.
 
 ESP32, Arduino Core for ESP32 ile kodlanacaktır.
 
 ### Donanım
 
-Akıllı cihaz için ESP32 WROOM-32U mikrodenetleyicisi kullanılacaktır. Ayrıca verilerin ölçülebilmesi için ise BMP180, BME680 ve ışık sensörü kullanılacaktır.
+Akıllı cihaz için ESP32 WROOM-32U mikrodenetleyicisi kullanılacaktır. Ayrıca verilerin ölçülebilmesi için ise BME680 sensörü, ışık kontrolünün gösterilebilmesi için led ve alarm için buzzer kullanılacaktır.
 
 Akıllı cihazdan gelen verilerin görüntülenebilmesi için mobil telefon gereklidir.
 

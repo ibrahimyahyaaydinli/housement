@@ -26,7 +26,7 @@ const char *password = "";
 Adafruit_BME680 bme680;
 
 /*******************************************************************************
- * 10 ms timer.
+ * 10 ms timer and interrupts.
  ******************************************************************************/
 hw_timer_t *timer = NULL;
 volatile SemaphoreHandle_t timerSemaphore;
@@ -39,6 +39,13 @@ void ARDUINO_ISR_ATTR timer_10ms()
 	state_machine.update_clock();
 
 	portEXIT_CRITICAL_ISR(&timerMux);
+}
+
+// Burglar alarm interrupt.
+bool is_movement = false;
+void ARDUINO_ISR_ATTR burglar_alarm_irq(void *arg)
+{
+	is_movement = true;
 }
 
 /*******************************************************************************
@@ -85,17 +92,19 @@ void setup()
 	// Start Firebase.
 	housement_server_init();
 
-	// Set buzzer as output.
+	// Set buzzer and led as output.
 	pinMode(buzzer, OUTPUT);
-
-	// Set pir as input.
-	pinMode(pir_sensor, INPUT);
+	pinMode(led, OUTPUT);
 
     // Configure timer in 10 ms.
     timer = timerBegin(0, 80, true);
     timerAttachInterrupt(timer, &timer_10ms, true);
     timerAlarmWrite(timer, 10000, true);
     timerAlarmEnable(timer);
+
+	// Attach burglar alarm irq.
+	pinMode(pir_sensor, INPUT_PULLDOWN);
+    attachInterruptArg(pir_sensor, burglar_alarm_irq, NULL, RISING);
 }
 
 /**
