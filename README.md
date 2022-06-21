@@ -10,7 +10,7 @@ Bu proje basit bir akıllı ev sisteminin uygulanmasıdır. Projede evde bulunan
 
 * [Ali Cüneyt Çağlar](https://github.com/CuneytCaglar)
 
-Frontend tarafında React Native kullanılarak app geliştirme ve uygulama
+React ve Firebase kullanarak müşterileri web üzerinden kayıt etme.
 
 * [Ali Furkan Demir](https://github.com/AliFurkanDemir)
 
