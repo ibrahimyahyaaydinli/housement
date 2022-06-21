@@ -27,9 +27,11 @@ static void read_movement();
 static void update_database();
 static void burglar_alarm();
 static void extreme_temperature();
-static void open_led();
-static void close_led();
-static void (*state_functions[])() = {read_sensor, read_movement, update_database, burglar_alarm, extreme_temperature, open_led, close_led};
+static void open_led1();
+static void close_led1();
+static void open_led2();
+static void close_led2();
+static void (*state_functions[])() = {read_sensor, read_movement, update_database, burglar_alarm, extreme_temperature, open_led1, close_led1, open_led2, close_led2};
 
 void run_event(events event)
 {
@@ -46,7 +48,8 @@ void read_sensor()
 		debug_println("Error on reading sensor data!");
 		exit(1);
 	}
-	h_server.temperature = bme680.temperature;
+	float temp_temperature = (int32_t)(bme680.temperature * 10 + 0.5);
+	h_server.temperature = (float)temp_temperature / 10;
 	debug_println("Temperature: " + (String)h_server.temperature);
 
 	// Check extreme temperature.
@@ -55,7 +58,8 @@ void read_sensor()
 	}
 
 	// Get gas resistance.
-	h_server.gas = bme680.gas_resistance / 1000.0;
+	float temp_gas = (int32_t)(bme680.gas_resistance * 10 + 0.5);
+	h_server.gas = (float)temp_gas / 10 / 1000.0;
 	debug_println("Gas resistance: " + (String)h_server.gas);
 }
 
@@ -94,14 +98,26 @@ static void extreme_temperature()
 	debug_println("Extreme temperature!");
 }
 
-static void open_led()
+static void open_led1()
 {
-	digitalWrite(led, HIGH);
-	debug_println("Led opened.");
+	digitalWrite(led1, HIGH);
+	debug_println("Led 1 opened.");
 }
 
-static void close_led()
+static void close_led1()
 {
-	digitalWrite(led, LOW);
-	debug_println("Led closed.");
+	digitalWrite(led1, LOW);
+	debug_println("Led 1 closed.");
+}
+
+static void open_led2()
+{
+	digitalWrite(led2, HIGH);
+	debug_println("Led 2 opened.");
+}
+
+static void close_led2()
+{
+	digitalWrite(led2, LOW);
+	debug_println("Led 2 closed.");
 }

@@ -81,6 +81,9 @@ void setup()
 		debug_println("BME680 not found! Check wiring!");
 		while (1);
 	}
+	else {
+		debug_println("BME680 is initialized!");
+	}
 
 	// Set up oversampling and filter initialization
 	bme680.setTemperatureOversampling(BME680_OS_1X);
@@ -92,9 +95,10 @@ void setup()
 	// Start Firebase.
 	housement_server_init();
 
-	// Set buzzer and led as output.
+	// Set buzzer and leds as output.
 	pinMode(buzzer, OUTPUT);
-	pinMode(led, OUTPUT);
+	pinMode(led1, OUTPUT);
+	pinMode(led2, OUTPUT);
 
     // Configure timer in 10 ms.
     timer = timerBegin(0, 80, true);

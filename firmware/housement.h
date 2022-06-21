@@ -13,6 +13,9 @@
 
 #define buzzer 2
 #define pir_sensor 4
-#define led 16
+#define led1 16
+#define led2 17
+
+#define DEVICE_ID (String)"h123456789/"
 
 #endif // __HOUSEMENT_H
