@@ -20,30 +20,40 @@ import IconHome from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {styles} from '../style';
 import {Button, TextInput} from 'react-native-paper';
+import {readData, updateData} from './Database';
+
+const Leds = props => {
+  return (
+    <View style={styles.lightsViewElements}>
+      <View style={styles.lightsViewElementsItemsNameView}>
+        <Text style={styles.lightsViewElementsItemsText}>
+          {props.statePartName}
+        </Text>
+      </View>
+
+      <TouchableHighlight
+        style={styles.lightsViewElementsItems}
+        onPress={() => {
+          updateData(!props.state, props.stateName);
+        }}
+        underlayColor={!props.state ? '#37A64E' : '#A63737'}>
+        <View>
+          <IconHome
+            name={props.state ? 'led-on' : 'led-off'}
+            color={props.state ? '#37A64E' : '#A63737'}
+            size={50}
+          />
+        </View>
+      </TouchableHighlight>
+    </View>
+  );
+};
 
 const Lights = ({navigation}) => {
-  {
-  }
-
   const [isToggle, setToggle] = useState(false);
 
-  useEffect(() => {
-    databaseL()
-      .ref('/users')
-      .on('value', snapshot => {
-        {
-          setToggle(snapshot.val().is_led_open.isToggle);
-        }
-      });
-  }, []);
-
-  const updateData = () => {
-    setToggle(!isToggle);
-
-    databaseL().ref('/users/is_led_open').update({
-      isToggle: isToggle,
-    });
-  };
+  let toggle1 = readData('is_led_open/led_1').state_ops;
+  let toggle2 = readData('is_led_open/led_2').state_ops;
 
   return (
     <SafeAreaView>
@@ -71,14 +81,17 @@ const Lights = ({navigation}) => {
           </Text>
         </View>
       </View>
-      <View style={{alignItems: 'center'}}>
-        <TouchableHighlight onPress={updateData}>
-          <IconHome
-            name={isToggle ? 'led-on' : 'led-off'}
-            color={'blue'}
-            size={50}
-          />
-        </TouchableHighlight>
+      <View style={styles.lightsView}>
+        <Leds
+          stateName="is_led_open/led_1"
+          state={toggle1}
+          statePartName="Salon"
+        />
+        <Leds
+          stateName="is_led_open/led_2"
+          state={toggle2}
+          statePartName="Yatak Odası"
+        />
       </View>
     </SafeAreaView>
   );

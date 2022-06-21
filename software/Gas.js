@@ -23,7 +23,7 @@ import {styles} from '../style';
 
 import dataBase, {readData} from './Database';
 
-const Tempereture = ({navigation}) => {
+const Gas = ({navigation}) => {
   const [isGas, setGas] = useState();
 
   return (
@@ -48,21 +48,21 @@ const Tempereture = ({navigation}) => {
               fontFamily: 'Questrial-Regular',
               color: 'white',
             }}>
-            tempereture
+            gas
           </Text>
         </View>
       </View>
 
-      <View style={styles.tempereture}>
-        <View>
-          <Text style={{fontSize: 25}}>Temperature</Text>
+      <View style={styles.gas}>
+        <View style={styles.gasElement}>
+          <Text style={{fontSize: 35, color: 'black'}}>Gas</Text>
         </View>
-        <View>
-          <Text style={{fontSize: 25}}>{readData('temperature')}</Text>
+        <View style={styles.gasElement}>
+          <Text style={{fontSize: 40}}>{readData('gas')}</Text>
         </View>
       </View>
     </SafeAreaView>
   );
 };
 
-export default Tempereture;
+export default Gas;
